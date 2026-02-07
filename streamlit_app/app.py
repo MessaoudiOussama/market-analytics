@@ -8,11 +8,11 @@ Run with:
     streamlit run streamlit_app/app.py
 """
 
-import streamlit as st
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
-from data_loader import load_speeches, load_market_data, load_sentiment_summary
+import streamlit as st
+
+from data_loader import load_market_data, load_sentiment_summary, load_speeches
 
 # ── Page Config ───────────────────────────────────────────
 st.set_page_config(

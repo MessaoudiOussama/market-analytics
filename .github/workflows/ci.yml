@@ -18,9 +18,8 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          pip install ruff
+      - name: Install Ruff
+        run: pip install ruff
 
       - name: Run Ruff linter
         run: ruff check src/ streamlit_app/
@@ -40,11 +39,14 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Poetry
-        run: pip install poetry
-
-      - name: Install dependencies
-        run: poetry install --no-root
+      - name: Install test dependencies
+        run: |
+          pip install pytest
+          pip install requests feedparser beautifulsoup4 yfinance
+          pip install sqlalchemy psycopg2-binary pandas numpy
+          pip install transformers torch --index-url https://download.pytorch.org/whl/cpu
 
       - name: Run tests
-        run: poetry run pytest tests/ -v --tb=short
+        env:
+          PYTHONPATH: src
+        run: pytest tests/ -v --tb=short

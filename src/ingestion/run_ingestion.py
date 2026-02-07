@@ -12,7 +12,6 @@ Usage:
 """
 
 import logging
-import sys
 
 from database.connection import init_db
 from database.repository import store_market_snapshot, store_speech

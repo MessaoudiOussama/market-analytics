@@ -16,14 +16,13 @@ This allows backfilling hundreds of speeches at once.
 """
 
 import logging
-import ssl
 import time
-import urllib3
 from dataclasses import dataclass
 from datetime import datetime
-from urllib.request import Request, urlopen
+from typing import Any
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -58,15 +57,7 @@ class ECBArchiveSpeech:
     source: str = "ecb"
 
 
-def _get_ssl_context():
-    """Create an SSL context that skips certificate verification."""
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    return ctx
-
-
-def _fetch_json(url: str) -> any:
+def _fetch_json(url: str) -> Any:
     """Fetch and parse JSON from a URL, handling SSL issues."""
     try:
         response = requests.get(url, timeout=30, verify=False)

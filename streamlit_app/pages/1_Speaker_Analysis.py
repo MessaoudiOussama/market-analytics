@@ -5,12 +5,12 @@ Drill down into individual speakers: sentiment patterns,
 speech frequency, and how their tone has evolved over time.
 """
 
-import streamlit as st
+import os
+import sys
+
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
-import sys
-import os
+import streamlit as st
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from data_loader import load_speeches

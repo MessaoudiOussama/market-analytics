@@ -5,15 +5,15 @@ Analyzes the correlation between speech sentiment and market movements.
 Shows how markets react to positive, negative, and neutral communications.
 """
 
-import streamlit as st
+import os
+import sys
+
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
-import sys
-import os
+import streamlit as st
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from data_loader import load_speeches_with_market, load_market_data
+from data_loader import load_market_data, load_speeches_with_market
 
 st.set_page_config(page_title="Market Impact", page_icon="📈", layout="wide")
 

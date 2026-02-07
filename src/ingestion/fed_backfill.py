@@ -27,11 +27,11 @@ Structure per entry:
 
 import logging
 import time
-import urllib3
 from dataclasses import dataclass
 from datetime import datetime
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)

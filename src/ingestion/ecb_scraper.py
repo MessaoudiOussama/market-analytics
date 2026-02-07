@@ -9,13 +9,13 @@ Source: https://www.ecb.europa.eu/rss/press.html
 
 import logging
 import ssl
-import urllib3
 from dataclasses import dataclass
 from datetime import datetime
 from urllib.request import Request, urlopen
 
 import feedparser
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
 # Suppress SSL warnings — needed for corporate proxy environments

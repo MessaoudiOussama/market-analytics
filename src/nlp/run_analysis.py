@@ -11,7 +11,6 @@ Usage:
 """
 
 import logging
-import sys
 
 from database.connection import init_db
 from database.repository import get_unanalyzed_speeches, store_sentiment

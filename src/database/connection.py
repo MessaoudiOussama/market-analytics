@@ -14,12 +14,12 @@ Usage:
         session.add(some_object)
 """
 
-import os
 import logging
+import os
+from contextlib import contextmanager
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
-from contextlib import contextmanager
+from sqlalchemy.orm import Session, sessionmaker
 
 from database.models import Base
 

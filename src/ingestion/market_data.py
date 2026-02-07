@@ -15,6 +15,7 @@ Tracks key instruments that are most affected by central bank communications:
 import logging
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from typing import Any
 
 import yfinance as yf
 
@@ -111,7 +112,6 @@ def _fetch_single_symbol(
         return None
 
     # Find the closest trading day to the speech date
-    speech_date_str = speech_date.strftime("%Y-%m-%d")
     price_at_speech = _get_closest_price(hist, speech_date)
 
     if price_at_speech is None:
@@ -188,7 +188,7 @@ def fetch_bulk_market_data(
     start_date: str,
     end_date: str,
     symbols: dict[str, str] | None = None,
-) -> dict[str, any]:
+) -> dict[str, Any]:
     """
     Fetch bulk historical market data for a date range.
 
