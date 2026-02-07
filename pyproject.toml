@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "market-analytics"
+version = "0.1.0"
+description = "NLP pipeline analyzing the market impact of public figures & central bank communications"
+authors = []
+packages = [
+    {include = "analytics", from = "src"},
+    {include = "database", from = "src"},
+    {include = "ingestion", from = "src"},
+    {include = "nlp", from = "src"},
+]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+# Data Processing
+pandas = ">=2.2.0"
+numpy = ">=1.26.0"
+# Database
+sqlalchemy = ">=2.0.0"
+psycopg2-binary = ">=2.9.9"
+alembic = ">=1.13.0"
+# Web Scraping / Ingestion
+requests = ">=2.31.0"
+feedparser = ">=6.0.11"
+beautifulsoup4 = ">=4.12.0"
+# Market Data
+yfinance = ">=0.2.36"
+# NLP
+transformers = ">=4.40.0"
+torch = ">=2.2.0"
+spacy = ">=3.7.0"
+# Dashboard
+streamlit = ">=1.32.0"
+plotly = ">=5.20.0"
+statsmodels = "^0.14.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.1.0"
+ruff = ">=0.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
