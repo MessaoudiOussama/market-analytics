@@ -38,9 +38,10 @@ webserver_config.py
 
 # ── Data (keep structure, ignore large files) ─
 data/*.csv
-data/*.parquet
 data/*.sqlite
 !data/.gitkeep
+# Note: data/*.parquet is NOT ignored — Parquet files are committed
+# for Streamlit Cloud deployment (dashboard reads from them)
 
 # ── Docker ───────────────────────────────────
 docker-compose.override.yml
