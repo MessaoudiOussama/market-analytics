@@ -16,7 +16,7 @@ from data_loader import load_market_data, load_sentiment_summary, load_speeches
 
 # ── Page Config ───────────────────────────────────────────
 st.set_page_config(
-    page_title="Market Voice Analytics",
+    page_title="Market Voice Analytics - V1.0",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
